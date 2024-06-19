@@ -6,33 +6,11 @@
 /*   By: ahayon <ahayon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 14:46:15 by eltouma           #+#    #+#             */
-/*   Updated: 2024/06/18 01:09:33 by eltouma          ###   ########.fr       */
+/*   Updated: 2024/06/19 14:36:16 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-
-void	ft_close_hd_sig(t_data *data, t_cmds *head_cmds)
-{
-	t_redir	*head;
-	t_cmds	*tmp;
-
-	tmp = head_cmds;
-	while (tmp != NULL)
-	{
-		head = tmp->redir;
-		while (head != NULL)
-		{
-			if (head->type == HEREDOC)
-			{
-				if (close(tmp->hd_read) == -1)
-					ft_handle_close_error(data, head_cmds);
-			}
-			head = head->next;
-		}
-		tmp = tmp->next;
-	}
-}
 
 static void	ft_init_exec(t_cmds *cmds)
 {
