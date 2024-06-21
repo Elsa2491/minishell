@@ -6,7 +6,7 @@
 /*   By: ahayon <ahayon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 13:41:43 by ahayon            #+#    #+#             */
-/*   Updated: 2024/06/18 00:53:55 by ahayon           ###   ########.fr       */
+/*   Updated: 2024/06/21 17:53:24 by eltouma          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,12 @@ void	ft_bckslsh_handler(int sig)
 
 void	ft_handle_signal(void)
 {
-	signal(SIGPIPE, SIG_IGN);
 	signal(SIGQUIT, SIG_IGN);
 	signal(SIGINT, &ft_cc_handler);
 }
 
 void	ft_handle_sig_child(void)
 {
-	signal(SIGPIPE, SIG_IGN);
 	signal(SIGQUIT, &ft_bckslsh_handler);
 	signal(SIGINT, &ft_cc_blocking);
 }
